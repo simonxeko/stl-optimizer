@@ -1,7 +1,6 @@
+### STL Optimizer
 
-ly Optimizer
-
-Poly optimizer is a script that optimize stl meshes.
+STL optimizer is a script that optimize stl meshes.
 
 ### Version
 0.0.1
