@@ -1,4 +1,6 @@
-#include <cstdio>
+#include "stdio.h"
+#include "stdlib.h"
+#include "stddef.h"
 #include <cmath>
 #include <list>
 #include <vector>
@@ -8,6 +10,7 @@
 #include "rbtree.h"
 
 using namespace std;
+
 
 // global vars
 set<Face*> triangles;
@@ -33,7 +36,7 @@ bool read_stl(char* fname){
 	fread(header_info, 1, 80, f);
     // read 4-byte ulong
 	fread(&nTriLong, 4, 1, f);
-	fprintf(stderr, "Faces: %ld\n", nTriLong);
+	fprintf(stderr, "Faces: %d\n", (int)nTriLong);
 
     // read triangles
 	for(int i = 0; i < nTriLong; i++){
@@ -64,7 +67,7 @@ bool read_stl(char* fname){
 		triangles.insert(new Face(vptr[0],vptr[1],vptr[2],vs[0]));
 	}
 
-	fprintf(stderr, "Vertices: %ld\n", vertices.size());
+	fprintf(stderr, "Vertices: %d\n", (int)vertices.size());
 	return true;
 }
 
@@ -129,7 +132,7 @@ int main(int argc, char* argv[]){
 			vrbt.remove(least_cost_vertex);
 			least_cost_vertex->collapse_with(least_cost_vertex->collapse);
 			if(vertex_count%1000 == 0){
-				fprintf(stderr, "Vertices Count %ld, least_cost %f\n", vertex_count, least_cost);
+				fprintf(stderr, "Vertices Count %d, least_cost %f\n", vertex_count, least_cost);
 			}
 		}
 
@@ -144,7 +147,7 @@ int main(int argc, char* argv[]){
 			output.insert(*it);
 		}
 
-		fprintf(stderr,"Optimized faces: %ld, vertices: %ld\n", output.size(), vertex_count);
+		fprintf(stderr,"Optimized faces: %d, vertices: %d\n", (int)output.size(), vertex_count);
 
 		//Output STL
 		unsigned char header[80] = {0};

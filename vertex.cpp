@@ -1,6 +1,10 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "stddef.h"
 #include "util.h"
 #include "vertex.h"
 #include "face.h"
+#include <algorithm>
 
 #include <float.h>
 
@@ -8,6 +12,8 @@ typedef list<Vertex*>::iterator VertexIter;
 typedef list<Vertex*>::reverse_iterator RVertexIter;
 typedef list<Face*>::iterator FaceIter;
 typedef list<Face*>::reverse_iterator RFaceIter;
+
+using namespace std;
 
 int vid = 0;
 
